@@ -35,110 +35,320 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ek+Mukta:wght@400;600&display=swap">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced Meta Tags -->
+    <title>Learn with Likhon | Full Stack Development & Digital Marketing Hub</title>
+    <meta name="title" content="Learn with Likhon | Full Stack Development & Digital Marketing Hub">
+    <meta name="description" content="Join Bangladesh's premier tech educator for expert full-stack development training, digital marketing mastery, and cutting-edge web technologies. Live courses, community support, and industry recognition.">
+    <meta name="keywords" content="web development, digital marketing, coding bootcamp, tech education, Bangladesh, full stack development, React, Node.js, JavaScript, programming courses">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f7d433">
+    <link rel="apple-touch-icon" href="/assets/images/logo-192x192.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="/assets/css/style.css" as="style">
+    
+    <!-- CSS Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Custom scroll behavior */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f7d433;
+            border-radius: 5px;
+        }
+        
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        /* Custom animations */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #f7d433, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <header class="header animate__animated animate__fadeInDown">
-        <div class="container">
-            <nav class="nav">
-                <h1>Learn with Likhon</h1>
-                <div>
-                    <a href="#home">Home</a>
-                    <a href="#কোর্স">Courses</a>
-                    <a href="#আমাদের-বিষয়ে">About Us</a>
-                    <a href="#যোগাযোগ">Contact</a>
+<body class="bg-gray-50 font-[Poppins]">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="https://avatars.githubusercontent.com/u/185852485?s=200&v=4" 
+                         alt="Learn with Likhon Logo" 
+                         class="w-12 h-12 rounded-full hover:scale-110 transition-transform">
+                    <span class="font-bold text-xl">Learn with Likhon</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#courses" class="nav-link">কোর্স</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#contact" class="nav-link">যোগাযোগ</a>
+                    <a href="#join" class="bg-primary px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all">
+                        Join Now
+                    </a>
                 </div>
-            </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-    </header>
-    
-    <section class="hero" id="home">
-        <div class="container">
-            <h1 class="animate__animated animate__fadeInUp">Transform Your Tech Career</h1>
-            <p class="animate__animated animate__fadeInUp">Join us for web development and digital marketing training.</p>
-            <a href="#কোর্স" class="btn animate__animated animate__fadeInUp">Explore Courses</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- Hero Content -->
+                <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        Learn to <span class="gradient-text">Code</span> 
+
+                        Build the <span class="gradient-text">Future</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">
+                        Transform your career with expert-led training in full-stack development 
+                        and digital marketing. Join our thriving tech community today!
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#courses" class="inline-block bg-primary text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                            Explore Courses 6</a>
+                        <a href="#contact" class="inline-block bg-transparent border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all">
+                            Get in Touch 6</a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="md:w-1/2 mt-12 md:mt-0" data-aos="fade-left">
+                    <img src="https://avatars.githubusercontent.com/u/185852485?s=200&v=4" 
+                         alt="Likhon Sheikh" 
+                         class="mx-auto w-72 h-72 rounded-full shadow-2xl float border-4 border-primary">
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-4xl font-bold gradient-text">10K+</h3>
+                    <p class="text-gray-400">Students</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-4xl font-bold gradient-text">50+</h3>
+                    <p class="text-gray-400">Courses</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-4xl font-bold gradient-text">95%</h3>
+                    <p class="text-gray-400">Success Rate</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-4xl font-bold gradient-text">24/7</h3>
+                    <p class="text-gray-400">Support</p>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <section class="features" id="কোর্স">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInDown">Why Choose Us</h2>
-            <div class="feature animate__animated animate__fadeInUp">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Practical Learning</h3>
-                <p>Learn through real-world projects and hands-on experience.</p>
-            </div>
-            <div class="feature animate__animated animate__fadeInUp">
-                <i class="fas fa-users"></i>
-                <h3>Community Support</h3>
-                <p>Join our active community of developers and learners.</p>
-            </div>
-            <div class="feature animate__animated animate__fadeInUp">
-                <i class="fas fa-certificate"></i>
-                <h3>Industry Recognition</h3>
-                <p>Build an employer-verified portfolio.</p>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Why Choose Us?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+                        <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-laptop-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Practical Learning</h3>
+                        <p class="text-gray-600">Real-world projects and hands-on experience with modern technologies.</p>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+                        <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Community Support</h3>
+                        <p class="text-gray-600">Join our active community of developers and learners.</p>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+                        <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-certificate text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Industry Recognition</h3>
+                        <p class="text-gray-600">Build an employer-verified portfolio.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
-    <section class="about" id="আমাদের-বিষয়ে">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInDown">About Us</h2>
-            <p class="animate__animated animate__fadeInUp">Learn with Likhon is Bangladesh's leading tech educator. We help you learn full-stack development, digital marketing, and more. Our expert instructors guide you with the latest technologies and industry trends.</p>
-        </div>
-    </section>
-    
-    <section class="testimonials" id="টেস্টিমোনিয়াল">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInDown">What Our Students Say</h2>
-            <div class="testimonial animate__animated animate__fadeInUp">
-                <p>"Learn with Likhon transformed my career. The courses are comprehensive and practical."</p>
-                <span>- John Doe, Web Developer</span>
-            </div>
-            <div class="testimonial animate__animated animate__fadeInUp">
-                <p>"I highly recommend Learn with Likhon. The instructors are knowledgeable and supportive."</p>
-                <span>- Jane Smith, Digital Marketer</span>
+
+    <!-- About Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">About Us</h2>
+            <div class="text-center" data-aos="fade-up">
+                <p class="text-xl mb-8 text-gray-700">
+                    Learn with Likhon is Bangladesh's leading tech educator. We help you learn full-stack development, digital marketing, and more. Our expert instructors guide you with the latest technologies and industry trends.</p>
+                <a href="#about" class="inline-block bg-primary text-black px-8 py-2 rounded-full font-semibold hover:shadow-lg transform hover:-translate-Y-1 transition-all">
+                    Learn More 8</a>
             </div>
         </div>
     </section>
-    
-    <section class="contact" id="যোগাযোগ">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInDown">Contact Us</h2>
-            <p class="animate__animated animate__fadeInUp">Want to contact us or learn more? Get in touch!</p>
-            <form action="#" method="post" class="animate__animated animate__fadeInUp">
-                <div>
-                    <label for="নাম">নাম</label>
-                    <input type="text" id="নাম" name="নাম" required>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">What Our Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+                        <p class="text-gray-700 mb-4">"Learn with Likhon transformed my career. The courses are comprehensive and practical."</p>
+                        <span class="text-gray-500">- John Doe, Web Developer</span>
+                    </div>
                 </div>
-                <div>
-                    <label for="ইমেইল">ইমেইল</label>
-                    <input type="email" id="ইমেইল" name="ইমেইল" required>
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+                        <p class="text-gray-700 mb-4">"I highly recommend Learn with Likhon. The instructors are knowledgeable and supportive."</p>
+                        <span class="text-gray-500">- Jane Smith, Digital Marketer</span>
+                    </div>
                 </div>
-                <div>
-                    <label for="বার্তা">Message</label>
-                    <textarea id="বার্তা" name="বার্তা" required></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Contact Us</h2>
+            <p class="text-xl text-center mb-8 text-gray-700">Want to contact us or learn more? Get in touch!</p>
+            <form action="#" method="post" class="max-w-md mx-auto" data-aos="fade-up">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg">
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Message</label>
+                    <textarea id="message" name="message" required class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary text-black p-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                    Send Message
+8</button>
             </form>
         </div>
     </section>
-    
-    <footer class="footer animate__animated animate__fadeInUp">
-        <div class="container">
-            <p>&copy; ২০২৪ Learn with Likhon. All Rights Reserved.</p>
-            <ul>
-                <li><a href="প্রাইভেসি-পলিসি.html">Privacy Policy</a></li>
-                <li><a href="টার্মস-অফ-সার্ভিস.html">Terms of Service</a></li>
-                <li><a href="যোগাযোগ.html">Contact</a></li>
-            </ul>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Learn with Likhon. All Rights Reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white">যোগাযোগ</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://facebook.com/learnwithlikhon" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook"></i> Facebook
+7</a>
+                    <a href="https://twitter.com/learnwithlikhon" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i> Twitter 8</a>
+                    <a href="https://instagram.com/learnwithlikhon" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i> Instagram 9</a>
+                    <a href="https://linkedin.com/learnwithlikhon" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin"></i> LinkedIn 10</a>
+                </div>
+            </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    
+    <!-- Initialize -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Preloader
+4        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.display = 'none';
+        });
+
+        // Smooth scroll
+5        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar scroll effect 6        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 0) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 </html>
+		
